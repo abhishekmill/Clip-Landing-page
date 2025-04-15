@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.image-clip-1 {
+  clip-path: inset(0 70% 0 0);
+  transition: clip-path 0.5s ease-in-out;
+}
+.image-clip-1:hover {
+  clip-path: inset(0 0 0 0);
+}
+.image-clip-2 {
+  clip-path: inset(0% 35% 0% 30%);
+  transition: clip-path 0.5s ease-in-out;
+}
+.image-clip-2:hover {
+  clip-path: inset(0 0 0 0);
+}
+.image-clip-3 {
+  clip-path: inset(0% 0% 0% 65%);
+  transition: clip-path 0.5s ease-in-out;
+}
+.image-clip-3:hover {
+  clip-path: inset(0 0 0 0);
+}
