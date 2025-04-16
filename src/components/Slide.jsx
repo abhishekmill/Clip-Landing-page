@@ -12,22 +12,40 @@ const Slide = () => {
   return (
     <div className="  flex justify-between  w-[100%]  border-2 border-black  overflow-hidden relative  ">
       <div
-        onClick={() => {
-          animateWithGSAP(img1Ref.current, "clipPath", "inset(0% 0% 0% 0%)");
+        onMouseEnter={() => {
+          hoverAnimateFunction(
+            img1Ref.current,
+            "clipPath",
+            "inset(0% 75% 0% 0%)",
+            false
+          );
         }}
-        ref={img1Ref}
-        style={{
-          clipPath: "inset(0% 70% 0% 0%)",
+        onMouseLeave={() => {
+          hoverAnimateFunction(
+            img1Ref.current,
+            "clipPath",
+            "inset(0% 75% 100% 0%)",
+            true
+          );
         }}
-        className=" image-clip-1   w-screen  border-black         absolute group  duration-500 "
+        className="h-screen bg-amber-100 w-[25%]"
       >
-        <img
-          className="    h-screen    w-[55%]  translate-y-[100%] group-hover:translate-y-0  -translate-x-[55%]   duration-800 object-cover        "
-          src="./img1.jpg"
-          alt=""
-        />
+        <div
+          onClick={() => {
+            animateWithGSAP(img1Ref.current, "clipPath", "inset(0% 0% 0% 0%)");
+          }}
+          ref={img1Ref}
+          className=" image-clip-1 duration-0  w-screen  border-black h-screen      bg-blue-200   absolute group   "
+        >
+          <img
+            className="    h-screen    w-[55%]  group-hover:translate-y-0   duration-800 object-cover        "
+            src="./img1.jpg"
+            alt=""
+          />
+        </div>
       </div>
-      <div
+
+      {/* <div
         ref={img2Ref}
         onClick={() => {
           animateWithGSAP(img2Ref.current, "clipPath", "inset(0% 0% 0% 0%)");
@@ -65,7 +83,7 @@ const Slide = () => {
           src="./img4.jpg"
           alt=""
         />
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -95,4 +113,31 @@ const animateWithGSAP = (targetElement, targetProperty, newValue) => {
       ease: "power3.in",
     });
   }
+};
+const hoverAnimateFunction = (
+  targetElement,
+  targetProperty,
+  newValue,
+  isEnding = false
+) => {
+  const child = targetElement.children[0];
+
+  gsap.to(targetElement, {
+    [targetProperty]: newValue,
+    duration: 0.7,
+    ease: "power2.out",
+    onStart: () => {},
+    onComplete: () => {
+      if (isEnding) {
+        targetElement.style.clipPath = "inset(100% 75% 0% 0%)";
+      }
+    },
+  });
+
+  gsap.to(child, {
+    translateY: "0%",
+    x: 0,
+    duration: 0.7,
+    ease: "power3.in",
+  });
 };
