@@ -35,10 +35,10 @@ const Slide = () => {
             animateWithGSAP(img1Ref.current, "clipPath", "inset(0% 0% 0% 0%)");
           }}
           ref={img1Ref}
-          className=" image-clip-1 duration-0  w-screen  border-black h-screen      bg-blue-200   absolute group   "
+          className=" image-clip-1 duration-0  w-screen h-screen  border-black  translate-y-[30%]     bg-blue-200   absolute group   "
         >
           <img
-            className="    h-screen    w-[55%]  group-hover:translate-y-0   duration-800 object-cover        "
+            className="    h-screen      w-[55%]  object-cover     duration-800  "
             src="./img1.jpg"
             alt=""
           />
@@ -122,22 +122,37 @@ const hoverAnimateFunction = (
 ) => {
   const child = targetElement.children[0];
 
+  if (isEnding) {
+    targetElement.style.translateY = "30%";
+  }
+
   gsap.to(targetElement, {
     [targetProperty]: newValue,
-    duration: 0.7,
+    translateY: isEnding ? "-20%" : 0,
+
+    duration: 0.9,
     ease: "power2.out",
+    repeat: 0,
+    reversed: false,
     onStart: () => {},
     onComplete: () => {
       if (isEnding) {
+        targetElement.style.translateY = "20%";
         targetElement.style.clipPath = "inset(100% 75% 0% 0%)";
       }
     },
   });
 
   gsap.to(child, {
-    translateY: "0%",
-    x: 0,
-    duration: 0.7,
-    ease: "power3.in",
+    scale: isEnding ? "1" : "1.1",
+    duration: 0.9,
+    ease: "power2.out",
+    onStart: () => {
+      child.style.scale = "1";
+    },
+    onComplete: () => {
+      if (isEnding) {
+      }
+    },
   });
 };
