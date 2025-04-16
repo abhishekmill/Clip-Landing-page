@@ -28,17 +28,17 @@ const Slide = () => {
             true
           );
         }}
-        className="h-screen bg-amber-100 w-[25%]"
+        className="h-screen   border border-white  w-[25%]"
       >
         <div
           onClick={() => {
             animateWithGSAP(img1Ref.current, "clipPath", "inset(0% 0% 0% 0%)");
           }}
           ref={img1Ref}
-          className=" image-clip-1 duration-0  w-screen h-screen  border-black  translate-y-[30%]     bg-blue-200   absolute group   "
+          className=" image-clip-1 duration-0  w-screen h-screen  border-black      bg-blue-200   absolute group   "
         >
           <img
-            className="    h-screen      w-[55%]  object-cover     duration-800  "
+            className="    h-screen      w-[55%]  object-cover object-right    duration-800  "
             src="./img1.jpg"
             alt=""
           />
@@ -106,7 +106,7 @@ const animateWithGSAP = (targetElement, targetProperty, newValue) => {
 
   if (child) {
     gsap.to(child, {
-      scale: 1.05,
+      scale: 1.01,
       width: "100%",
       x: 0,
       duration: 0.7,
@@ -122,37 +122,30 @@ const hoverAnimateFunction = (
 ) => {
   const child = targetElement.children[0];
 
-  if (isEnding) {
-    targetElement.style.translateY = "30%";
-  }
-
   gsap.to(targetElement, {
     [targetProperty]: newValue,
-    translateY: isEnding ? "-20%" : 0,
-
+    y: isEnding ? "-40%" : 0,
     duration: 0.9,
-    ease: "power2.out",
-    repeat: 0,
-    reversed: false,
-    onStart: () => {},
+    ease: "power1.inOut",
     onComplete: () => {
+      console.log(targetElement.style.transform);
       if (isEnding) {
-        targetElement.style.translateY = "20%";
-        targetElement.style.clipPath = "inset(100% 75% 0% 0%)";
+        gsap.set(targetElement, {
+          clipPath: "inset(100% 75% 0% 0%)",
+          y: "40%",
+        });
       }
     },
   });
 
-  gsap.to(child, {
-    scale: isEnding ? "1" : "1.1",
-    duration: 0.9,
-    ease: "power2.out",
-    onStart: () => {
-      child.style.scale = "1";
-    },
-    onComplete: () => {
-      if (isEnding) {
-      }
-    },
-  });
+  // gsap.to(child, {
+  //   scale: isEnding ? 1 : 1.1,
+  //   duration: 0.5,
+  //   ease: "power1.in",
+  //   onStart: () => {
+  //     if (!isEnding) {
+  //       child.style.transform = "scale(1)";
+  //     }
+  //   },
+  // });
 };

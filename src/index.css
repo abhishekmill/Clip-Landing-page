@@ -2,6 +2,7 @@
 
 .image-clip-1 {
   clip-path: inset(100% 75% 0% 0);
+  transform: translateY(20%);
 }
 /* .image-clip-1:hover {
   clip-path: inset(0 0 0 0);
