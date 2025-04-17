@@ -5,25 +5,25 @@
   transform: translateY(20%);
 }
 /* .image-clip-1:hover {
-  clip-path: inset(0 0 0 0);
+  clip-path: inset(0 75% 0 0);
 } */
 .image-clip-2 {
-  clip-path: inset(0% 50% 0% 25%);
-  transition: clip-path 0.5s ease-in-out;
+  clip-path: inset(100% 50% 0% 25%);
+  transform: translateY(0%);
 }
 /* .image-clip-2:hover {
   clip-path: inset(0 0 0 0);
 } */
 .image-clip-3 {
-  clip-path: inset(0% 25% 0% 50%);
-  transition: clip-path 0.5s ease-in-out;
+  clip-path: inset(100% 25% 0% 50%);
+  transform: translateY(0%);
 }
 /* .image-clip-3:hover {
   clip-path: inset(0 0 0 0);
 } */
 .image-clip-4 {
-  clip-path: inset(0% 0% 0% 75%);
-  transition: clip-path 0.5s ease-in-out;
+  clip-path: inset(100% 0% 0% 75%);
+  transform: translateY(20%);
 }
 /* .image-clip-4:hover {
   clip-path: inset(0 0 0 0);

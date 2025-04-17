@@ -3,7 +3,7 @@ import Slide from "./components/Slide";
 
 function App() {
   return (
-    <div className=" h-screen flex bg-red-950 ">
+    <div className=" h-screen flex  ">
       <Slide />
     </div>
   );
