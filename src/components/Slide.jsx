@@ -116,6 +116,8 @@ const Slide = () => {
             "clipPath",
             "inset(0% 0% 0% 0%)"
           );
+
+          textAnimateFunction(text1Ref, "5%", 0.5);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white    "
       >
@@ -162,6 +164,8 @@ const Slide = () => {
             "clipPath",
             "inset(0% 0% 0% 0%)"
           );
+
+          textAnimateFunction(text2Ref, "5%", 0.6);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       >
@@ -209,6 +213,7 @@ const Slide = () => {
             "clipPath",
             "inset(0% 0% 0% 0%)"
           );
+          textAnimateFunction(text3Ref, "5%", 0.6);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       >
@@ -255,6 +260,8 @@ const Slide = () => {
             "clipPath",
             "inset(0% 0% 0% 0%)"
           );
+
+          textAnimateFunction(text4Ref, "5%", 0.8);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       >
@@ -378,6 +385,14 @@ const hoverAnimateFunction = (
     },
   });
 };
-const textAnimateFunction = () => {
-  
+const textAnimateFunction = (targetElement, leftVal, duration) => {
+  gsap.to(targetElement.current, {
+    zIndex: 40,
+    scale: 1.2,
+    fontWeight: "bold",
+    color: "white",
+    left: leftVal,
+    duration: duration,
+    ease: "power1.inOut",
+  });
 };
