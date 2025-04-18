@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const Slide = () => {
@@ -8,6 +8,79 @@ const Slide = () => {
   const img4Ref = useRef(null);
 
   const handleOnclick = (e) => {};
+
+  useEffect(() => {
+    hoverAnimateFunction(
+      img1Ref.current,
+      "clipPath",
+      "inset(0% 75% 0% 0%)",
+      false,
+      0,
+      0.1
+    );
+
+    hoverAnimateFunction(
+      img1Ref.current,
+      "clipPath",
+      "inset(0% 75% 100% 0%)",
+      true,
+      "inset(100% 75% 0% 0%)",
+      1.3
+    );
+
+    hoverAnimateFunction(
+      img2Ref.current,
+      "clipPath",
+      "inset(0% 50% 0% 25%)",
+      false,
+      0,
+      0.1
+    );
+
+    hoverAnimateFunction(
+      img2Ref.current,
+      "clipPath",
+      "inset(0% 50% 100% 25%)",
+      true,
+      "inset(100% 50% 0% 25%)",
+      1.5
+    );
+
+    hoverAnimateFunction(
+      img3Ref.current,
+      "clipPath",
+      "inset(0% 25% 0% 50%)",
+      false,
+      0,
+      0.1
+    );
+    hoverAnimateFunction(
+      img3Ref.current,
+      "clipPath",
+      "inset(0% 25% 100% 50%)",
+      true,
+      "inset(100% 25% 0% 50%)",
+      1.7
+    );
+
+    hoverAnimateFunction(
+      img4Ref.current,
+      "clipPath",
+      "inset(0% 0% 0% 75%)",
+      false,
+      0,
+      0.1
+    );
+
+    hoverAnimateFunction(
+      img4Ref.current,
+      "clipPath",
+      "inset(0% 0% 100% 75%)",
+      true,
+      "inset(100% 0% 0% 75%)",
+      1.9
+    );
+  }, []);
 
   return (
     <div className="  flex  w-screen border-2 border-black  overflow-hidden relative  ">
@@ -25,7 +98,9 @@ const Slide = () => {
             img1Ref.current,
             "clipPath",
             "inset(0% 75% 100% 0%)",
-            true
+            true,
+            "inset(100% 75% 0% 0%)",
+            0.2
           );
         }}
         onClick={() => {
@@ -36,15 +111,39 @@ const Slide = () => {
             "inset(0% 0% 0% 0%)"
           );
         }}
-        className="w-[25%] h-screen border-black border-r  bg-white   "
-      ></div>
+        className="w-[25%] h-screen border-black border-r  bg-white    "
+      >
+        <div className="text-5xl absolute z-10  tracking-wider  bottom-20 left-[3%]      ">
+          {" "}
+          Peace <br /> of nature
+        </div>
+      </div>
       <div
         onMouseEnter={() => {
           hoverAnimateFunction(
             img2Ref.current,
             "clipPath",
             "inset(0% 50% 0% 25%)",
-            false
+            false,
+            0
+          );
+        }}
+        onMouseLeave={() => {
+          hoverAnimateFunction(
+            img2Ref.current,
+            "clipPath",
+            "inset(0% 50% 100% 25%)",
+            true,
+            "inset(100% 50% 0% 25%)",
+            0.2
+          );
+        }}
+        onClick={() => {
+          animateWithGSAP(
+            img2Ref.current,
+            "0%",
+            "clipPath",
+            "inset(0% 0% 0% 0%)"
           );
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
@@ -55,202 +154,87 @@ const Slide = () => {
             img3Ref.current,
             "clipPath",
             "inset(0% 25% 0% 50%)",
-            false
+            false,
+            0
           );
         }}
         onMouseLeave={() => {
           hoverAnimateFunction(
             img3Ref.current,
             "clipPath",
+            "inset(0% 25% 100% 50%)",
+            true,
             "inset(100% 25% 0% 50%)",
-            true
+            0.2
+          );
+        }}
+        onClick={() => {
+          animateWithGSAP(
+            img3Ref.current,
+            "0%",
+            "clipPath",
+            "inset(0% 0% 0% 0%)"
           );
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       ></div>
-      <div className="w-[25%] h-screen border-black border-r  bg-white   "></div>
+      <div
+        onMouseEnter={() => {
+          hoverAnimateFunction(
+            img4Ref.current,
+            "clipPath",
+            "inset(0% 0% 0% 75%)",
+            false,
+            0
+          );
+        }}
+        onMouseLeave={() => {
+          hoverAnimateFunction(
+            img4Ref.current,
+            "clipPath",
+            "inset(0% 0% 100% 75%)",
+            true,
+            "inset(100% 0% 0% 75%)",
+            0.2
+          );
+        }}
+        onClick={() => {
+          animateWithGSAP(
+            img4Ref.current,
+            "0%",
+            "clipPath",
+            "inset(0% 0% 0% 0%)"
+          );
+        }}
+        className="w-[25%] h-screen border-black border-r  bg-white   "
+      ></div>
 
       {/* img-cards-clips  */}
 
       <div
         ref={img1Ref}
-        className="h-screen pointer-events-none  image-clip-1   border  absolute  "
+        className="h-screen   pointer-events-none  image-clip-1   border  absolute  "
       >
-        <img className="duration-150 " src="./img1.jpg" alt="" />
+        <img className="   scale-[1.6]  " src="./img1.jpg" alt="" />
       </div>
       <div
         ref={img2Ref}
-        className="h-screen image-clip-2  border border-white absolute  "
+        className="h-screen     image-clip-2  border pointer-events-none absolute  "
       >
-        <img className=" duration-300" src="./img2.jpg" alt="" />
+        <img className=" scale-150  " src="./img2.jpg" alt="" />
       </div>
       <div
         ref={img3Ref}
-        className="h-screen image-clip-3  border border-white absolute  "
+        className="h-screen   image-clip-3  border pointer-events-none absolute  "
       >
-        <img className=" duration-300" src="./img3.jpg" alt="" />
+        <img className=" scale-150     " src="./img3.jpg" alt="" />
       </div>
-
-      {/* img-1 */}
-      {/* <div
-        onMouseEnter={() => {
-          hoverAnimateFunction(
-            img1Ref.current,
-            "clipPath",
-            "inset(0% 75% 0% 0%)",
-            false
-          );
-        }}
-        onMouseLeave={() => {
-          hoverAnimateFunction(
-            img1Ref.current,
-            "clipPath",
-            "inset(0% 75% 100% 0%)",
-            true
-          );
-        }}
-        className="h-screen   border border-white   absolute  w-[25%]"
+      <div
+        ref={img4Ref}
+        className="h-screen    image-clip-4  border pointer-events-none absolute  "
       >
-        <div
-          onClick={() => {
-            animateWithGSAP(
-              img1Ref.current,
-              "0%",
-              "clipPath",
-              "inset(0% 0% 0% 0%)"
-            );
-          }}
-          ref={img1Ref}
-          className=" image-clip-1 duration-0  w-screen h-screen  border-black    left-0     absolute group   "
-        >
-          <img
-            className="    h-screen      w-[55%]  object-cover object-right    duration-800  "
-            src="./img1.jpg"
-            alt=""
-          />
-        </div>
-      </div> */}
-
-      {/* img-2 */}
-      {/* <div
-        onMouseEnter={() => {
-          hoverAnimateFunction(
-            img2Ref.current,
-            "clipPath",
-            "inset(0% 75% 0% 0%)",
-            false
-          );
-        }}
-        onMouseLeave={() => {
-          hoverAnimateFunction(
-            img2Ref.current,
-            "clipPath",
-            "inset(0% 75% 100% 0%)",
-            true
-          );
-        }}
-        className="h-screen   border border-white absolute   w-[25%]"
-      >
-        <div
-          ref={img2Ref}
-          onClick={() => {
-            animateWithGSAP(
-              img2Ref.current,
-              "0%",
-              "clipPath",
-              "inset(0% 0% 0% 0%)"
-            );
-          }}
-          className="  image-clip-2    duration-0  w-screen h-screen  border-black      bg-blue-200   absolute group"
-        >
-          <img
-            className="   h-screen     w-[55%]  object-cover   duration-800       "
-            src="./img2.jpg"
-            alt=""
-          />
-        </div>
-      </div> */}
-
-      {/* img-3 */}
-
-      {/* <div
-        onMouseEnter={() => {
-          hoverAnimateFunction(
-            img3Ref.current,
-            "clipPath",
-            "inset(0% 75% 0% 0%)",
-            false
-          );
-        }}
-        onMouseLeave={() => {
-          hoverAnimateFunction(
-            img3Ref.current,
-            "clipPath",
-            "inset(0% 75% 100% 0%)",
-            true
-          );
-        }}
-        className="h-screen   border border-white absolute left-0  w-[25%]"
-      >
-        <div
-          ref={img3Ref}
-          onClick={() => {
-            animateWithGSAP(
-              img3Ref.current,
-              "-0",
-              "clipPath",
-              "inset(0% 0% 0% 0%)"
-            );
-          }}
-          className="  image-clip-3 duration-0  w-screen h-screen  border-black      bg-blue-200   absolute group "
-        >
-          <img
-            className="    h-screen      w-[55%]  object-cover object-right    duration-800   "
-            src="./img3.jpg"
-            alt=""
-          />
-        </div>
-      </div> */}
-
-      {/* img-4 */}
-      {/* <div
-        onMouseEnter={() => {
-          hoverAnimateFunction(
-            img4Ref.current,
-            "clipPath",
-            "inset(0% 75% 0% 0%)",
-            false
-          );
-        }}
-        onMouseLeave={() => {
-          hoverAnimateFunction(
-            img4Ref.current,
-            "clipPath",
-            "inset(0% 75% 100% 0%)",
-            true
-          );
-        }}
-        className="h-screen   border border-white absolute left-0  w-[25%]"
-      >
-        <div
-          ref={img4Ref}
-          onClick={() => {
-            animateWithGSAP(
-              img4Ref.current,
-              "-0",
-              "clipPath",
-              "inset(0% 0% 0% 0%)"
-            );
-          }}
-          className="  image-clip-4 duration-0  w-screen h-screen  border-black      bg-blue-200   absolute group   "
-        >
-          <img
-            className="   h-screen      w-[55%]  object-cover object-right    duration-800   "
-            src="./img4.jpg"
-            alt=""
-          />
-        </div>
-      </div> */}
+        <img className=" scale-150    " src="./img4.jpg" alt="" />
+      </div>
     </div>
   );
 };
@@ -267,7 +251,6 @@ const animateWithGSAP = (
 
   gsap.to(targetElement, {
     [targetProperty]: newValue,
-
     duration: 0.5,
     ease: "power1.in",
     onStart: () => {
@@ -286,11 +269,12 @@ const animateWithGSAP = (
 
   if (child) {
     gsap.to(child, {
-      scale: 1.01,
+      scale: 1,
+
       width: "100%",
       x: 0,
       duration: 0.7,
-      ease: "power3.in",
+      ease: "power1.inOut",
     });
   }
 };
@@ -298,34 +282,32 @@ const hoverAnimateFunction = (
   targetElement,
   targetProperty,
   newValue,
-  isEnding = false
+  isEnding = false,
+  staticValue,
+  delay = 0
 ) => {
   const child = targetElement.children[0];
 
   gsap.to(targetElement, {
     [targetProperty]: newValue,
-    y: isEnding ? "-40%" : 0,
+
+    y: isEnding ? "-50%" : 0,
     duration: 0.9,
-    ease: "power1.inOut",
+    delay: delay,
+    ease: "power2.Out",
     onComplete: () => {
-      console.log(targetElement.style.transform);
+      // gsap.to(child, {
+      //   scale: 1.05,
+      //   duration: 0.5,
+      //   ease: "power3.in",
+      // });
+
       if (isEnding) {
         gsap.set(targetElement, {
-          clipPath: "inset(100% 75% 0% 0%)",
+          clipPath: staticValue,
           y: "40%",
         });
       }
     },
   });
-
-  // gsap.to(child, {
-  //   scale: isEnding ? 1 : 1.1,
-  //   duration: 0.5,
-  //   ease: "power1.in",
-  //   onStart: () => {
-  //     if (!isEnding) {
-  //       child.style.transform = "scale(1)";
-  //     }
-  //   },
-  // });
 };
