@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import AnimatedText from "./AnimatedText";
+import CircleImg from "./CircleImg";
 
 const Slide = () => {
   const img1Ref = useRef(null);
@@ -8,12 +9,17 @@ const Slide = () => {
   const img3Ref = useRef(null);
   const img4Ref = useRef(null);
 
+  const circleImg1Ref = useRef(null);
+  const circleImg2Ref = useRef(null);
+  const circleImg3Ref = useRef(null);
+  const circleImg4Ref = useRef(null);
+
   const text1Ref = useRef(null);
   const text2Ref = useRef(null);
   const text3Ref = useRef(null);
   const text4Ref = useRef(null);
 
-  const handleOnclick = (e) => {};
+  const [isHoverEnabled, setIsHoverEnabled] = useState(true);
 
   useEffect(() => {
     hoverAnimateFunction(
@@ -92,6 +98,7 @@ const Slide = () => {
     <div className="  flex  w-screen border-2 border-black  overflow-hidden relative  ">
       <div
         onMouseEnter={() => {
+          if (!isHoverEnabled) return;
           hoverAnimateFunction(
             img1Ref.current,
             "clipPath",
@@ -100,6 +107,8 @@ const Slide = () => {
           );
         }}
         onMouseLeave={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img1Ref.current,
             "clipPath",
@@ -110,6 +119,8 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          if (!isHoverEnabled) return;
+          setIsHoverEnabled(false);
           animateWithGSAP(
             img1Ref.current,
             "0%",
@@ -118,6 +129,7 @@ const Slide = () => {
           );
 
           textAnimateFunction(text1Ref, "5%", 0.5);
+          imageAnimateFunction(circleImg1Ref, "0%", 0.8);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white    "
       >
@@ -136,9 +148,17 @@ const Slide = () => {
             classname={"text-5xl tracking-wider   capitalize "}
           />
         </div>
+
+        <CircleImg
+          ref={circleImg1Ref}
+          imgPath={"./circleImg1.jpg"}
+          className={""}
+        />
       </div>
       <div
         onMouseEnter={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img2Ref.current,
             "clipPath",
@@ -148,6 +168,8 @@ const Slide = () => {
           );
         }}
         onMouseLeave={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img2Ref.current,
             "clipPath",
@@ -158,6 +180,8 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          if (!isHoverEnabled) return;
+          setIsHoverEnabled(false);
           animateWithGSAP(
             img2Ref.current,
             "0%",
@@ -166,6 +190,7 @@ const Slide = () => {
           );
 
           textAnimateFunction(text2Ref, "5%", 0.6);
+          imageAnimateFunction(circleImg2Ref, "0%", 0.8);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       >
@@ -185,9 +210,16 @@ const Slide = () => {
             classname={"text-5xl tracking-wider   capitalize "}
           />
         </div>
+        <CircleImg
+          ref={circleImg2Ref}
+          imgPath={"./circleImg2.jpg"}
+          className={""}
+        />
       </div>
       <div
         onMouseEnter={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img3Ref.current,
             "clipPath",
@@ -197,6 +229,8 @@ const Slide = () => {
           );
         }}
         onMouseLeave={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img3Ref.current,
             "clipPath",
@@ -207,6 +241,8 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          if (!isHoverEnabled) return;
+          setIsHoverEnabled(false);
           animateWithGSAP(
             img3Ref.current,
             "0%",
@@ -214,6 +250,7 @@ const Slide = () => {
             "inset(0% 0% 0% 0%)"
           );
           textAnimateFunction(text3Ref, "5%", 0.6);
+          imageAnimateFunction(circleImg3Ref, "0%", 0.8);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       >
@@ -232,9 +269,16 @@ const Slide = () => {
             classname={"text-5xl tracking-wider   capitalize "}
           />
         </div>
+        <CircleImg
+          ref={circleImg3Ref}
+          imgPath={"./circleImg3.jpg"}
+          className={""}
+        />
       </div>
       <div
         onMouseEnter={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img4Ref.current,
             "clipPath",
@@ -244,6 +288,8 @@ const Slide = () => {
           );
         }}
         onMouseLeave={() => {
+          if (!isHoverEnabled) return;
+
           hoverAnimateFunction(
             img4Ref.current,
             "clipPath",
@@ -254,6 +300,8 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          if (!isHoverEnabled) return;
+          setIsHoverEnabled(false);
           animateWithGSAP(
             img4Ref.current,
             "0%",
@@ -262,6 +310,7 @@ const Slide = () => {
           );
 
           textAnimateFunction(text4Ref, "5%", 0.8);
+          imageAnimateFunction(circleImg4Ref, "0%", 0.8);
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
       >
@@ -281,6 +330,11 @@ const Slide = () => {
             classname={"text-5xl tracking-wider   capitalize "}
           />
         </div>
+        <CircleImg
+          ref={circleImg4Ref}
+          imgPath={"./circleImg4.jpg"}
+          className={""}
+        />
       </div>
 
       {/* img-cards-clips  */}
@@ -352,6 +406,7 @@ const animateWithGSAP = (
     });
   }
 };
+
 const hoverAnimateFunction = (
   targetElement,
   targetProperty,
@@ -393,6 +448,21 @@ const textAnimateFunction = (targetElement, leftVal, duration) => {
     color: "white",
     left: leftVal,
     duration: duration,
+    ease: "power1.inOut",
+  });
+};
+
+const imageAnimateFunction = (
+  targetElement,
+  leftVal,
+  duration,
+  isEnding = false
+) => {
+  gsap.to(targetElement.current, {
+    rotation: 0,
+
+    scale: 1,
+    duration: 1,
     ease: "power1.inOut",
   });
 };
