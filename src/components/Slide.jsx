@@ -1,11 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import AnimatedText from "./AnimatedText";
 
 const Slide = () => {
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
   const img3Ref = useRef(null);
   const img4Ref = useRef(null);
+
+  const text1Ref = useRef(null);
+  const text2Ref = useRef(null);
+  const text3Ref = useRef(null);
+  const text4Ref = useRef(null);
 
   const handleOnclick = (e) => {};
 
@@ -113,9 +119,20 @@ const Slide = () => {
         }}
         className="w-[25%] h-screen border-black border-r  bg-white    "
       >
-        <div className="text-5xl absolute z-10  tracking-wider  bottom-20 left-[3%]      ">
-          {" "}
-          Peace <br /> of nature
+        <div
+          ref={text1Ref}
+          className=" absolute z-20   bottom-20 left-[3%]      "
+        >
+          <AnimatedText
+            delay={0.5}
+            children={"Our  "}
+            classname={"text-5xl tracking-wider  capitalize  "}
+          />
+          <AnimatedText
+            delay={0.5}
+            children={"Approach  "}
+            classname={"text-5xl tracking-wider   capitalize "}
+          />
         </div>
       </div>
       <div
@@ -147,7 +164,24 @@ const Slide = () => {
           );
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
-      ></div>
+      >
+        {" "}
+        <div
+          ref={text2Ref}
+          className=" absolute z-20   bottom-20 left-[28%]      "
+        >
+          <AnimatedText
+            delay={0.8}
+            children={"Our  "}
+            classname={"text-5xl tracking-wider  capitalize  "}
+          />
+          <AnimatedText
+            delay={0.8}
+            children={"Approach  "}
+            classname={"text-5xl tracking-wider   capitalize "}
+          />
+        </div>
+      </div>
       <div
         onMouseEnter={() => {
           hoverAnimateFunction(
@@ -177,7 +211,23 @@ const Slide = () => {
           );
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
-      ></div>
+      >
+        <div
+          ref={text3Ref}
+          className=" absolute z-20   bottom-20 left-[53%]      "
+        >
+          <AnimatedText
+            delay={0.8}
+            children={"Our  "}
+            classname={"text-5xl tracking-wider  capitalize  "}
+          />
+          <AnimatedText
+            delay={0.8}
+            children={"Approach  "}
+            classname={"text-5xl tracking-wider   capitalize "}
+          />
+        </div>
+      </div>
       <div
         onMouseEnter={() => {
           hoverAnimateFunction(
@@ -207,7 +257,24 @@ const Slide = () => {
           );
         }}
         className="w-[25%] h-screen border-black border-r  bg-white   "
-      ></div>
+      >
+        {" "}
+        <div
+          ref={text4Ref}
+          className=" absolute z-20   bottom-20    left-[78%]   "
+        >
+          <AnimatedText
+            delay={0.8}
+            children={"Our  "}
+            classname={"text-5xl tracking-wider  capitalize  "}
+          />
+          <AnimatedText
+            delay={0.8}
+            children={"Technology  "}
+            classname={"text-5xl tracking-wider   capitalize "}
+          />
+        </div>
+      </div>
 
       {/* img-cards-clips  */}
 
@@ -254,7 +321,7 @@ const animateWithGSAP = (
     duration: 0.5,
     ease: "power1.in",
     onStart: () => {
-      targetElement.style.zIndex = 10;
+      targetElement.style.zIndex = 30;
       targetElement.children[0].style.objectPosition = "center";
     },
     onComplete: () => {},
@@ -310,4 +377,7 @@ const hoverAnimateFunction = (
       }
     },
   });
+};
+const textAnimateFunction = () => {
+  
 };
