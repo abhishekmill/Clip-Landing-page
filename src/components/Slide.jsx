@@ -24,6 +24,26 @@ const Slide = () => {
 
   const handleBackToHome = () => {
     setIsHoverEnabled(true);
+    if (selectedFrame === img1Ref.current) {
+      closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 75% 0% 0%)");
+      imageCloseFunction(circleImg1Ref);
+      textCloseFunction(text1Ref, "3%", 0.5);
+    }
+    if (selectedFrame === img2Ref.current) {
+      closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 50% 0% 25%)");
+      imageCloseFunction(circleImg2Ref);
+      textCloseFunction(text2Ref, "28%", 0.6);
+    }
+    if (selectedFrame === img3Ref.current) {
+      closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 25% 0% 50%)");
+      imageCloseFunction(circleImg3Ref);
+      textCloseFunction(text3Ref, "53%", 0.7);
+    }
+    if (selectedFrame === img4Ref.current) {
+      closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 0% 0% 75%)");
+      imageCloseFunction(circleImg4Ref);
+      textCloseFunction(text4Ref, "78%", 0.8);
+    }
   };
 
   useEffect(() => {
@@ -118,7 +138,12 @@ const Slide = () => {
           />
         </div>
 
-        <div className="   group  border- border  rounded-3xl w-20  h-10 overflow-hidden   ">
+        <div
+          onClick={() => {
+            window.open("https://github.com/abhishekmill", "_blank");
+          }}
+          className="   group hover:bg-green-400 border- border  rounded-3xl w-20  h-10 overflow-hidden   "
+        >
           <img
             src="./git.png"
             className=" duration-200  w-10  h-10 rounded-full  group-hover:translate-x-0 translate-x-10  "
@@ -151,6 +176,7 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          setSelectedFrame(img1Ref.current);
           if (!isHoverEnabled) return;
           setIsHoverEnabled(false);
           animateWithGSAP(
@@ -212,6 +238,8 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          setSelectedFrame(img2Ref.current);
+
           if (!isHoverEnabled) return;
           setIsHoverEnabled(false);
           animateWithGSAP(
@@ -273,6 +301,8 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          setSelectedFrame(img3Ref.current);
+
           if (!isHoverEnabled) return;
           setIsHoverEnabled(false);
           animateWithGSAP(
@@ -332,6 +362,7 @@ const Slide = () => {
           );
         }}
         onClick={() => {
+          setSelectedFrame(img4Ref.current);
           if (!isHoverEnabled) return;
           setIsHoverEnabled(false);
           animateWithGSAP(
@@ -375,7 +406,7 @@ const Slide = () => {
         ref={img1Ref}
         className="h-screen   pointer-events-none  image-clip-1   border  absolute  "
       >
-        <img className="   scale-[1.6]  " src="./img1.jpg" alt="" />
+        <img className="   scale-150  " src="./img1.jpg" alt="" />
       </div>
       <div
         ref={img2Ref}
@@ -457,12 +488,6 @@ const hoverAnimateFunction = (
     delay: delay,
     ease: "power2.Out",
     onComplete: () => {
-      // gsap.to(child, {
-      //   scale: 1.05,
-      //   duration: 0.5,
-      //   ease: "power3.in",
-      // });
-
       if (isEnding) {
         gsap.set(targetElement, {
           clipPath: staticValue,
@@ -474,27 +499,81 @@ const hoverAnimateFunction = (
 };
 const textAnimateFunction = (targetElement, leftVal, duration) => {
   gsap.to(targetElement.current, {
-    zIndex: 40,
     scale: 1.2,
     fontWeight: "bold",
     color: "white",
     left: leftVal,
+    onStart: () => {
+      targetElement.current.style.zIndex = 40;
+    },
+
     duration: duration,
     ease: "power1.inOut",
   });
 };
 
-const imageAnimateFunction = (
-  targetElement,
-  leftVal,
-  duration,
-  isEnding = false
-) => {
+const imageAnimateFunction = (targetElement) => {
   gsap.to(targetElement.current, {
     rotation: 0,
-
     scale: 1,
     duration: 1,
+    onStart: () => {
+      targetElement.current.style.right = "20%";
+      targetElement.current.style.transform = "rotate(-180deg)";
+    },
+    ease: "power1.inOut",
+  });
+};
+
+// closing animations
+
+const closeWithGSAP = (targetElement, xValue = 0, targetProperty, newValue) => {
+  const child = targetElement.children[0];
+
+  gsap.to(targetElement, {
+    [targetProperty]: newValue,
+    duration: 0.7,
+    ease: "power1.in",
+    onStart: () => {
+      targetElement.children[0].style.objectPosition = "center";
+    },
+    onComplete: () => {
+      targetElement.style.zIndex = 10;
+    },
+  });
+
+  if (child) {
+    gsap.to(child, {
+      scale: 1.5,
+
+      duration: 0.7,
+      ease: "power1.inOut",
+    });
+  }
+};
+
+const imageCloseFunction = (targetElement) => {
+  gsap.to(targetElement.current, {
+    rotation: -180,
+
+    scale: 0,
+    right: "-20%",
+    onComplete: () => {},
+    duration: 0.5,
+    ease: "power1.inOut",
+  });
+};
+
+const textCloseFunction = (targetElement, leftVal, duration) => {
+  gsap.to(targetElement.current, {
+    scale: 1,
+    fontWeight: "normal",
+    color: "black",
+    left: leftVal,
+    onComplete: () => {
+      targetElement.current.style.zIndex = 20;
+    },
+    duration: duration,
     ease: "power1.inOut",
   });
 };
