@@ -47,78 +47,78 @@ const Slide = () => {
     }
   };
 
-  useEffect(() => {
-    hoverAnimateFunction(
-      img1Ref.current,
-      "clipPath",
-      "inset(0% 75% 0% 0%)",
-      false,
-      0,
-      0.1
-    );
+  // useEffect(() => {
+  //   hoverAnimateFunction(
+  //     img1Ref.current,
+  //     "clipPath",
+  //     "inset(0% 75% 0% 0%)",
+  //     false,
+  //     0,
+  //     0.1
+  //   );
 
-    hoverAnimateFunction(
-      img1Ref.current,
-      "clipPath",
-      "inset(0% 75% 100% 0%)",
-      true,
-      "inset(100% 75% 0% 0%)",
-      1.3
-    );
+  //   hoverAnimateFunction(
+  //     img1Ref.current,
+  //     "clipPath",
+  //     "inset(0% 75% 100% 0%)",
+  //     true,
+  //     "inset(100% 75% 0% 0%)",
+  //     1.3
+  //   );
 
-    hoverAnimateFunction(
-      img2Ref.current,
-      "clipPath",
-      "inset(0% 50% 0% 25%)",
-      false,
-      0,
-      0.1
-    );
+  //   hoverAnimateFunction(
+  //     img2Ref.current,
+  //     "clipPath",
+  //     "inset(0% 50% 0% 25%)",
+  //     false,
+  //     0,
+  //     0.1
+  //   );
 
-    hoverAnimateFunction(
-      img2Ref.current,
-      "clipPath",
-      "inset(0% 50% 100% 25%)",
-      true,
-      "inset(100% 50% 0% 25%)",
-      1.5
-    );
+  //   hoverAnimateFunction(
+  //     img2Ref.current,
+  //     "clipPath",
+  //     "inset(0% 50% 100% 25%)",
+  //     true,
+  //     "inset(100% 50% 0% 25%)",
+  //     1.5
+  //   );
 
-    hoverAnimateFunction(
-      img3Ref.current,
-      "clipPath",
-      "inset(0% 25% 0% 50%)",
-      false,
-      0,
-      0.1
-    );
-    hoverAnimateFunction(
-      img3Ref.current,
-      "clipPath",
-      "inset(0% 25% 100% 50%)",
-      true,
-      "inset(100% 25% 0% 50%)",
-      1.7
-    );
+  //   hoverAnimateFunction(
+  //     img3Ref.current,
+  //     "clipPath",
+  //     "inset(0% 25% 0% 50%)",
+  //     false,
+  //     0,
+  //     0.1
+  //   );
+  //   hoverAnimateFunction(
+  //     img3Ref.current,
+  //     "clipPath",
+  //     "inset(0% 25% 100% 50%)",
+  //     true,
+  //     "inset(100% 25% 0% 50%)",
+  //     1.7
+  //   );
 
-    hoverAnimateFunction(
-      img4Ref.current,
-      "clipPath",
-      "inset(0% 0% 0% 75%)",
-      false,
-      0,
-      0.1
-    );
+  //   hoverAnimateFunction(
+  //     img4Ref.current,
+  //     "clipPath",
+  //     "inset(0% 0% 0% 75%)",
+  //     false,
+  //     0,
+  //     0.1
+  //   );
 
-    hoverAnimateFunction(
-      img4Ref.current,
-      "clipPath",
-      "inset(0% 0% 100% 75%)",
-      true,
-      "inset(100% 0% 0% 75%)",
-      1.9
-    );
-  }, []);
+  //   hoverAnimateFunction(
+  //     img4Ref.current,
+  //     "clipPath",
+  //     "inset(0% 0% 100% 75%)",
+  //     true,
+  //     "inset(100% 0% 0% 75%)",
+  //     1.9
+  //   );
+  // }, []);
 
   return (
     <div className="  flex  w-screen border-2 border-black  overflow-hidden relative  ">
@@ -144,7 +144,7 @@ const Slide = () => {
           onClick={() => {
             window.open("https://github.com/abhishekmill", "_blank");
           }}
-          className="   group hover:bg-green-400 border- border  rounded-3xl w-20  h-10 overflow-hidden   "
+          className="   group hover:bg-white border- border  rounded-3xl w-20  h-10 overflow-hidden   "
         >
           <img
             src="./git.png"
@@ -514,7 +514,7 @@ const hoverAnimateFunction = (
 };
 const textAnimateFunction = (targetElement, leftVal, duration) => {
   gsap.to(targetElement.current, {
-    scale: 1.2,
+    scale: 1.7,
     fontWeight: "bold",
     color: "white",
     left: leftVal,
