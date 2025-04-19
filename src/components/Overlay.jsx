@@ -23,14 +23,22 @@ const Overlay = ({ isColorBlack = false }) => {
         } absolute top-0 left-0 w-full h-screen  duration-500 `}
       ></div>
 
-      <div className="flex w-[900px] justify-between items-start mt-32 mr-40  ">
+      <div className="flex  lg:w-[900px] sm:w-[500px]  justify-between items-start mt-32 xl:mr-40  mr-20 ">
         <div>
-          <AnimatedText delay={5}> Where From</AnimatedText>
-          <AnimatedText delay={5}> and Function Unite</AnimatedText>
+          <AnimatedText classname={"text-sm xl:text-xl"} delay={5}>
+            {" "}
+            Where From
+          </AnimatedText>
+          <AnimatedText classname={"text-sm xl:text-xl"} delay={5}>
+            {" "}
+            and Function Unite
+          </AnimatedText>
         </div>
         <div>
           <AnimatedText
-            classname={"capitalize  text-6xl tracking-tight  "}
+            classname={
+              "capitalize  xl:text-5xl lg:text-4xl sm:text-2xl  tracking-tight  "
+            }
             delay={4}
             duration={2}
           >
@@ -38,7 +46,9 @@ const Overlay = ({ isColorBlack = false }) => {
             Elevating Comfort
           </AnimatedText>
           <AnimatedText
-            classname={"capitalize  text-6xl tracking-tight  "}
+            classname={
+              "capitalize  xl:text-5xl lg:text-4xl sm:text-2xl  tracking-tight  "
+            }
             delay={4}
             duration={2}
           >

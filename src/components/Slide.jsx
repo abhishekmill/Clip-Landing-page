@@ -199,12 +199,16 @@ const Slide = () => {
           <AnimatedText
             delay={0.5}
             children={"Our  "}
-            classname={"text-5xl tracking-wider  capitalize  "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider  capitalize  "
+            }
           />
           <AnimatedText
             delay={0.5}
             children={"Approach  "}
-            classname={"text-5xl tracking-wider   capitalize "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider   capitalize "
+            }
           />
         </div>
 
@@ -263,12 +267,16 @@ const Slide = () => {
           <AnimatedText
             delay={0.8}
             children={"Our  "}
-            classname={"text-5xl tracking-wider  capitalize  "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider  capitalize  "
+            }
           />
           <AnimatedText
             delay={0.8}
             children={"Approach  "}
-            classname={"text-5xl tracking-wider   capitalize "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider   capitalize "
+            }
           />
         </div>
         <CircleImg
@@ -324,12 +332,16 @@ const Slide = () => {
           <AnimatedText
             delay={0.8}
             children={"Our  "}
-            classname={"text-5xl tracking-wider  capitalize  "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider  capitalize  "
+            }
           />
           <AnimatedText
             delay={0.8}
             children={"Approach  "}
-            classname={"text-5xl tracking-wider   capitalize "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider   capitalize "
+            }
           />
         </div>
         <CircleImg
@@ -386,12 +398,16 @@ const Slide = () => {
           <AnimatedText
             delay={0.8}
             children={"Our  "}
-            classname={"text-5xl tracking-wider  capitalize  "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider  capitalize  "
+            }
           />
           <AnimatedText
             delay={0.8}
             children={"Technology  "}
-            classname={"text-5xl tracking-wider   capitalize "}
+            classname={
+              " xl:text-4xl lg:text-3xl md:text-2xl  tracking-wider   capitalize "
+            }
           />
         </div>
         <CircleImg
