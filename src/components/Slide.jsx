@@ -20,6 +20,11 @@ const Slide = () => {
   const text4Ref = useRef(null);
 
   const [isHoverEnabled, setIsHoverEnabled] = useState(true);
+  const [selectedFrame, setSelectedFrame] = useState(null);
+
+  const handleBackToHome = () => {
+    setIsHoverEnabled(true);
+  };
 
   useEffect(() => {
     hoverAnimateFunction(
@@ -96,6 +101,33 @@ const Slide = () => {
 
   return (
     <div className="  flex  w-screen border-2 border-black  overflow-hidden relative  ">
+      {/* navbar */}
+      <div
+        className={` ${
+          isHoverEnabled ? "-left-28" : "left-5"
+        }   absolute top-5  duration-500 h-fit z-50 flex w-60  justify-between `}
+      >
+        <div
+          onClick={handleBackToHome}
+          className="  w-20 h-10 group  border- border  rounded-3xl   "
+        >
+          <img
+            src="./arrow1.png"
+            className="rotate-[136deg] translate-x-6 group-hover:translate-x-2 duration-200  "
+            alt=""
+          />
+        </div>
+
+        <div className="   group  border- border  rounded-3xl w-20  h-10 overflow-hidden   ">
+          <img
+            src="./git.png"
+            className=" duration-200  w-10  h-10 rounded-full  group-hover:translate-x-0 translate-x-10  "
+            alt=""
+          />
+        </div>
+      </div>
+      {/* navbar closed  */}
+
       <div
         onMouseEnter={() => {
           if (!isHoverEnabled) return;
