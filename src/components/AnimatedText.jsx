@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import SplitType from "split-type";
 
-const AnimatedText = ({ children, duration = 0.5, delay = 0, classname }) => {
+const AnimatedText = ({ children, duration = 0.5, delay, classname }) => {
   useEffect(() => {
     const typeSplit = new SplitType("[animate]", {
       types: "lines, words, chars",

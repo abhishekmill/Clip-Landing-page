@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import AnimatedText from "./AnimatedText";
 import CircleImg from "./CircleImg";
+import Overlay from "./Overlay";
 
 const Slide = () => {
   const img1Ref = useRef(null);
@@ -121,6 +122,7 @@ const Slide = () => {
 
   return (
     <div className="  flex  w-screen border-2 border-black  overflow-hidden relative  ">
+      <Overlay isColorBlack={isHoverEnabled} />
       {/* navbar */}
       <div
         className={` ${
@@ -152,7 +154,6 @@ const Slide = () => {
         </div>
       </div>
       {/* navbar closed  */}
-
       <div
         onMouseEnter={() => {
           if (!isHoverEnabled) return;
@@ -399,9 +400,7 @@ const Slide = () => {
           className={""}
         />
       </div>
-
       {/* img-cards-clips  */}
-
       <div
         ref={img1Ref}
         className="h-screen   pointer-events-none  image-clip-1   border  absolute  "
