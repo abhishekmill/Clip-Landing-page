@@ -24,26 +24,70 @@ const Slide = () => {
   const [selectedFrame, setSelectedFrame] = useState(null);
 
   const handleBackToHome = () => {
-    setIsHoverEnabled(true);
+    const timer = setTimeout(() => {
+      setIsHoverEnabled(true);
+    }, 1500);
+
     if (selectedFrame === img1Ref.current) {
       closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 75% 0% 0%)");
       imageCloseFunction(circleImg1Ref);
       textCloseFunction(text1Ref, "3%", 0.5);
+      setTimeout(() => {
+        hoverAnimateFunction(
+          img1Ref.current,
+          "clipPath",
+          "inset(0% 75% 100% 0%)",
+          true,
+          "inset(100% 75% 0% 0%)",
+          0.2
+        );
+      }, 1500);
     }
     if (selectedFrame === img2Ref.current) {
       closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 50% 0% 25%)");
       imageCloseFunction(circleImg2Ref);
       textCloseFunction(text2Ref, "28%", 0.6);
+      setTimeout(() => {
+        hoverAnimateFunction(
+          img2Ref.current,
+          "clipPath",
+          "inset(0% 50% 100% 25%)",
+          true,
+          "inset(100% 50% 0% 25%)",
+          0.2
+        );
+      }, 1500);
     }
     if (selectedFrame === img3Ref.current) {
       closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 25% 0% 50%)");
       imageCloseFunction(circleImg3Ref);
       textCloseFunction(text3Ref, "53%", 0.7);
+      setTimeout(() => {
+        hoverAnimateFunction(
+          img3Ref.current,
+          "clipPath",
+          "inset(0% 25% 100% 50%)",
+          true,
+          "inset(100% 25% 0% 50%)",
+          0.2
+        );
+      }, 1500);
     }
     if (selectedFrame === img4Ref.current) {
       closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 0% 0% 75%)");
       imageCloseFunction(circleImg4Ref);
       textCloseFunction(text4Ref, "78%", 0.8);
+
+      setTimeout(() => {
+        hoverAnimateFunction(
+          img4Ref.current,
+          "clipPath",
+          "inset(0% 0% 100% 75%)",
+          true,
+          "inset(100% 0% 0% 75%)",
+          0.2
+        );
+      }, 500);
     }
   };
 
@@ -121,13 +165,13 @@ const Slide = () => {
   }, []);
 
   return (
-    <div className="  flex  w-screen border-2 border-black  overflow-hidden relative  ">
+    <div className="  flex    w-screen border-2 border-black  overflow-hidden relative  ">
       <Overlay isColorBlack={isHoverEnabled} />
       {/* navbar */}
       <div
         className={` ${
           isHoverEnabled ? "-left-28" : "left-5"
-        }   absolute top-5  duration-500 h-fit z-50 flex w-60  justify-between `}
+        }   absolute top-5  duration-500 h-fit z-50 flex  w-60  justify-between `}
       >
         <div
           onClick={handleBackToHome}
@@ -144,7 +188,7 @@ const Slide = () => {
           onClick={() => {
             window.open("https://github.com/abhishekmill", "_blank");
           }}
-          className="   group hover:bg-white border- border  rounded-3xl w-20  h-10 overflow-hidden   "
+          className="   group hover:bg-white border- border   rounded-3xl w-20  h-10 overflow-hidden   "
         >
           <img
             src="./git.png"
@@ -465,13 +509,13 @@ const animateWithGSAP = (
     },
     onComplete: () => {},
   });
-  overwrite: "auto",
-    gsap.to(targetElement, {
-      transform: `translateX(${xValue})`,
-      ease: "power1.in",
 
-      duration: 0.6,
-    });
+  gsap.to(targetElement, {
+    transform: `translateX(${xValue})`,
+    ease: "power1.in",
+
+    duration: 0.6,
+  });
 
   if (child) {
     gsap.to(child, {

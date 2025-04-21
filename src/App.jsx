@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Slide from "./components/Slide";
+import MobileVersion from "./components/MobileVersion";
 
 function App() {
   const [isDesktop, setIsDesktop] = useState(true);
@@ -19,17 +20,18 @@ function App() {
       {isDesktop ? (
         <Slide />
       ) : (
-        <div className=" text-white capitalize w-screen text-center h-screen flex-col flex justify-center items-center ">
-          <h2 className="p-5"> please use Desktop or Bigger screen Device </h2>
-          <a
-            href="https://github.com/abhishekmill"
-            target="_blank"
-            className="p-5 text-green-400"
-          >
-            {" "}
-            github.com/abhishekmill
-          </a>
-        </div>
+        <MobileVersion />
+        // <div className=" text-white capitalize w-screen text-center h-screen flex-col flex justify-center items-center ">
+        //   <h2 className="p-5"> please use Desktop or Bigger screen Device </h2>
+        //   <a
+        //     href="https://github.com/abhishekmill"
+        //     target="_blank"
+        //     className="p-5 text-green-400"
+        //   >
+        //     {" "}
+        //     github.com/abhishekmill
+        //   </a>
+        // </div>
       )}
     </div>
   );
