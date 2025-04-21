@@ -8,6 +8,21 @@ const MobileVersion = () => {
 
   const [selectedFrame, setSelectedFrame] = useState(null);
 
+  const handleCloseSection = () => {
+    if (selectedFrame === img1) {
+      closeOnClick(img1, "polygon(100% 0, 100% 13%, 0 45%, 0 0)");
+      setSelectedFrame(null);
+    }
+    if (selectedFrame === img2) {
+      closeOnClick(img2, "polygon(100% 10%, 100% 51%, 0 85%, 0 45%)");
+      setSelectedFrame(null);
+    }
+    if (selectedFrame === img3) {
+      closeOnClick(img3, "polygon(100% 51%, 100% 100%, 0 100%, 0 85%)");
+      setSelectedFrame(null);
+    }
+  };
+
   return (
     <div className=" w-screen h-screen  bg-white  ">
       <div
@@ -15,7 +30,10 @@ const MobileVersion = () => {
           selectedFrame === null ? "-left-24" : "left-5"
         }   absolute top-5  duration-500 h-fit z-50 flex  w-40  justify-between `}
       >
-        <div className="  w-12 h-7 group  border- border  rounded-3xl   ">
+        <div
+          onClick={handleCloseSection}
+          className="  w-12 h-7 group  border- border  rounded-3xl   "
+        >
           <img
             src="./arrow1.png"
             className="rotate-[136deg] w-7  translate-x-2  duration-200  "
@@ -85,7 +103,22 @@ const handleOnClick = (targetElement) => {
       targetElement.current.style.zIndex = "20"; // zIndex as string
     },
 
-    duration: 0.7,
+    duration: 0.3,
+    ease: "power1.inOut",
+  });
+};
+
+const closeOnClick = (targetElement, clipValue) => {
+  if (!targetElement?.current) return; // Safety check
+
+  gsap.to(targetElement.current, {
+    clipPath: clipValue,
+
+    onComplete: () => {
+      targetElement.current.style.zIndex = "10"; // zIndex as string
+    },
+
+    duration: 0.3,
     ease: "power1.inOut",
   });
 };
