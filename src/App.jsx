@@ -18,7 +18,9 @@ function App() {
   return (
     <div className=" h-screen flex  bg-gray-800 ">
       {isDesktop ? (
-        <Slide />
+        <div className="hidden  md:block ">
+          <Slide />
+        </div>
       ) : (
         <MobileVersion />
         // <div className=" text-white capitalize w-screen text-center h-screen flex-col flex justify-center items-center ">
