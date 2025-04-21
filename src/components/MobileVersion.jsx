@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import React, { useRef, useState } from "react";
+import AnimatedText from "./AnimatedText";
 
 const MobileVersion = () => {
   const img1 = useRef(null);
@@ -25,10 +26,30 @@ const MobileVersion = () => {
 
   return (
     <div className=" w-screen h-screen  bg-white  ">
+      <div className=" absolute z-30  top-[30%] left-[20%]     ">
+        <AnimatedText
+          delay={0.5}
+          children={"The  "}
+          classname={` ${
+            selectedFrame === null
+              ? "text-black font-bold"
+              : "text-white font-normal"
+          }   text-2xl  mix-blend-difference duration-500  tracking-wider  capitalize  `}
+        />
+        <AnimatedText
+          delay={0.5}
+          children={"Responsiveness  "}
+          classname={` ${
+            selectedFrame === null
+              ? "text-black font-normal"
+              : "text-white font-bold"
+          }   text-2xl  mix-blend-difference duration-700  tracking-wider  capitalize  `}
+        />
+      </div>
       <div
         className={` ${
           selectedFrame === null ? "-left-24" : "left-5"
-        }   absolute top-5  duration-500 h-fit z-50 flex  w-40  justify-between `}
+        }   absolute top-5  duration-700 h-fit z-50 flex  w-40  justify-between `}
       >
         <div
           onClick={handleCloseSection}
