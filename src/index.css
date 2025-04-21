@@ -28,3 +28,10 @@
 /* .image-clip-4:hover {
   clip-path: inset(0 0 0 0);
 } */
+
+.image-clip-1,
+.image-clip-2,
+.image-clip-3,
+.image-clip-4 {
+  will-change: clip-path;
+}

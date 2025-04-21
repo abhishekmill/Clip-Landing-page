@@ -465,13 +465,13 @@ const animateWithGSAP = (
     },
     onComplete: () => {},
   });
+  overwrite: "auto",
+    gsap.to(targetElement, {
+      transform: `translateX(${xValue})`,
+      ease: "power1.in",
 
-  gsap.to(targetElement, {
-    transform: `translateX(${xValue})`,
-    ease: "power1.in",
-
-    duration: 0.6,
-  });
+      duration: 0.6,
+    });
 
   if (child) {
     gsap.to(child, {
@@ -502,6 +502,7 @@ const hoverAnimateFunction = (
     duration: 0.9,
     delay: delay,
     ease: "power2.Out",
+    overwrite: "auto",
     onComplete: () => {
       if (isEnding) {
         gsap.set(targetElement, {
@@ -555,6 +556,7 @@ const closeWithGSAP = (targetElement, xValue = 0, targetProperty, newValue) => {
     onComplete: () => {
       targetElement.style.zIndex = 10;
     },
+    overwrite: "auto",
   });
 
   if (child) {
