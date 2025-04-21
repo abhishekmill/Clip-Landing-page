@@ -1,16 +1,46 @@
 import gsap from "gsap";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 const MobileVersion = () => {
   const img1 = useRef(null);
   const img2 = useRef(null);
   const img3 = useRef(null);
 
+  const [selectedFrame, setSelectedFrame] = useState(null);
+
   return (
     <div className=" w-screen h-screen  bg-white  ">
+      <div
+        className={` ${
+          selectedFrame === null ? "-left-24" : "left-5"
+        }   absolute top-5  duration-500 h-fit z-50 flex  w-40  justify-between `}
+      >
+        <div className="  w-12 h-7 group  border- border  rounded-3xl   ">
+          <img
+            src="./arrow1.png"
+            className="rotate-[136deg] w-7  translate-x-2  duration-200  "
+            alt=""
+          />
+        </div>
+
+        <div
+          onClick={() => {
+            window.open("https://github.com/abhishekmill", "_blank");
+          }}
+          className="   group hover:bg-white border- border   rounded-3xl w-12 h-7 overflow-hidden   "
+        >
+          <img
+            src="./git.png"
+            className=" duration-200  w-6  h-6 rounded-full  group-hover:translate-x-0   "
+            alt=""
+          />
+        </div>
+      </div>
+
       <img
         ref={img1}
         onClick={() => {
+          setSelectedFrame(img1);
           handleOnClick(img1);
         }}
         className=" img-m-1  duration-500 absolute  h-screen object-cover  z-10 "
@@ -20,6 +50,8 @@ const MobileVersion = () => {
       <img
         ref={img2}
         onClick={() => {
+          setSelectedFrame(img2);
+
           handleOnClick(img2);
         }}
         className=" img-m-2  duration-500 absolute  h-screen object-cover z-10  "
@@ -29,6 +61,8 @@ const MobileVersion = () => {
       <img
         ref={img3}
         onClick={() => {
+          setSelectedFrame(img3);
+
           handleOnClick(img3);
         }}
         className=" img-m-3  duration-500 absolute  h-screen object-cover  z-10 "
