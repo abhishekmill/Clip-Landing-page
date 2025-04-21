@@ -47,7 +47,7 @@ const MobileVersion = () => {
         />
       </div>
 
-      <div className="absolute z-30 bottom-[20%] left-[30%]">
+      <div className="absolute z-30 pointer-events-none bottom-[20%] left-[30%]">
         <AnimatedText
           delay={0.5}
           children={
