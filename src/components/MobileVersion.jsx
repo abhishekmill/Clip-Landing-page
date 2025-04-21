@@ -55,7 +55,7 @@ const MobileVersion = () => {
           }
           classname={` ${
             selectedFrame === null ? "text-white " : "text-white "
-          }   text-xl  mix-blend-difference duration-500   pl-2   `}
+          }   text-md  mix-blend-difference duration-500   pl-2   `}
         />
       </div>
 
