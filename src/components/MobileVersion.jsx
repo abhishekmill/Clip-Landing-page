@@ -26,7 +26,7 @@ const MobileVersion = () => {
 
   return (
     <div className=" w-screen h-screen  bg-white  ">
-      <div className=" absolute z-30  top-[30%] left-[20%]     ">
+      <div className=" absolute z-30  top-[30%] left-[20%]   pointer-events-none   ">
         <AnimatedText
           delay={0.5}
           children={"The  "}
@@ -46,6 +46,19 @@ const MobileVersion = () => {
           }   text-2xl  mix-blend-difference duration-700  tracking-wider  capitalize  `}
         />
       </div>
+
+      <div className="absolute z-30 bottom-[20%] left-[30%]">
+        <AnimatedText
+          delay={0.5}
+          children={
+            " ensures websites adapt to any device for optimal viewing  and media queries  "
+          }
+          classname={` ${
+            selectedFrame === null ? "text-white " : "text-white "
+          }   text-xl  mix-blend-difference duration-500   pl-2   `}
+        />
+      </div>
+
       <div
         className={` ${
           selectedFrame === null ? "-left-24" : "left-5"
