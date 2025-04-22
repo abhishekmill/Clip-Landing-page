@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <div className=" h-screen flex  bg-gray-800 ">
+    <div className=" h-screen flex  bg-gray-800 w-screen overflow-hidden ">
       {isDesktop ? (
         <div className="hidden  md:block ">
           <Slide />

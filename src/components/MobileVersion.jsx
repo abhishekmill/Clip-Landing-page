@@ -136,7 +136,7 @@ const handleOnClick = (targetElement) => {
     onStart: () => {
       targetElement.current.style.zIndex = "20"; // zIndex as string
     },
-
+    force3D: true,
     duration: 0.3,
     ease: "power1.inOut",
   });
@@ -151,7 +151,7 @@ const closeOnClick = (targetElement, clipValue) => {
     onComplete: () => {
       targetElement.current.style.zIndex = "10"; // zIndex as string
     },
-
+    force3D: true,
     duration: 0.3,
     ease: "power1.inOut",
   });

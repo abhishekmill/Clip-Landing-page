@@ -26,7 +26,7 @@ const Slide = () => {
   const handleBackToHome = () => {
     const timer = setTimeout(() => {
       setIsHoverEnabled(true);
-    }, 1500);
+    }, 1000);
 
     if (selectedFrame === img1Ref.current) {
       closeWithGSAP(selectedFrame, 0, "clipPath", "inset(0% 75% 0% 0%)");
@@ -507,20 +507,21 @@ const animateWithGSAP = (
       targetElement.style.zIndex = 30;
       targetElement.children[0].style.objectPosition = "center";
     },
+    force3D: true,
     onComplete: () => {},
   });
 
   gsap.to(targetElement, {
     transform: `translateX(${xValue})`,
     ease: "power1.in",
-
+    force3D: true,
     duration: 0.6,
   });
 
   if (child) {
     gsap.to(child, {
       scale: 1,
-
+      force3D: true,
       width: "100%",
       x: 0,
       duration: 0.7,
@@ -541,7 +542,7 @@ const hoverAnimateFunction = (
 
   gsap.to(targetElement, {
     [targetProperty]: newValue,
-
+    force3D: true,
     y: isEnding ? "-50%" : 0,
     duration: 0.9,
     delay: delay,
@@ -551,6 +552,7 @@ const hoverAnimateFunction = (
       if (isEnding) {
         gsap.set(targetElement, {
           clipPath: staticValue,
+          force3D: true,
           y: "40%",
         });
       }

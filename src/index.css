@@ -57,3 +57,9 @@
 .img-m-3:hover {
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
 } */
+
+.img-m-1,
+.img-m-2,
+.img-m-3 {
+  will-change: clip-path;
+}
