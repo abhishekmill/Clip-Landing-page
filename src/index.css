@@ -38,15 +38,21 @@
 
 .img-m-1 {
   clip-path: polygon(100% 0, 100% 13%, 0 45%, 0 0);
+  -webkit-clip-path: polygon(100% 0, 100% 13%, 0 45%, 0 0);
+  will-change: clip-path;
 }
 
 .img-m-2 {
   clip-path: polygon(100% 10%, 100% 51%, 0 85%, 0 45%);
-}
-.img-m-3 {
-  clip-path: polygon(100% 51%, 100% 100%, 0 100%, 0 85%);
+  -webkit-clip-path: polygon(100% 10%, 100% 51%, 0 85%, 0 45%);
+  will-change: clip-path;
 }
 
+.img-m-3 {
+  clip-path: polygon(100% 51%, 100% 100%, 0 100%, 0 85%);
+  -webkit-clip-path: polygon(100% 51%, 100% 100%, 0 100%, 0 85%);
+  will-change: clip-path;
+}
 /* .img-m-1:hover {
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
 }
@@ -57,9 +63,3 @@
 .img-m-3:hover {
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
 } */
-
-.img-m-1,
-.img-m-2,
-.img-m-3 {
-  will-change: clip-path;
-}

@@ -128,13 +128,13 @@ const MobileVersion = () => {
 export default MobileVersion;
 
 const handleOnClick = (targetElement) => {
-  if (!targetElement?.current) return; // Safety check
+  if (!targetElement?.current) return;
 
   gsap.to(targetElement.current, {
-    clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0)", // Fixed clipPath syntax
-
+    clipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0)",
+    webkitClipPath: "polygon(100% 0, 100% 100%, 0 100%, 0 0)", // Add prefixed version
     onStart: () => {
-      targetElement.current.style.zIndex = "20"; // zIndex as string
+      targetElement.current.style.zIndex = "20";
     },
     force3D: true,
     duration: 0.3,
@@ -143,13 +143,13 @@ const handleOnClick = (targetElement) => {
 };
 
 const closeOnClick = (targetElement, clipValue) => {
-  if (!targetElement?.current) return; // Safety check
+  if (!targetElement?.current) return;
 
   gsap.to(targetElement.current, {
     clipPath: clipValue,
-
+    webkitClipPath: clipValue, // Animate both versions
     onComplete: () => {
-      targetElement.current.style.zIndex = "10"; // zIndex as string
+      targetElement.current.style.zIndex = "10";
     },
     force3D: true,
     duration: 0.3,
